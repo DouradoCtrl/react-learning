@@ -25,3 +25,5 @@ const [message, setMessage] = useState("Olá, mundo"); // Hook
 
 //componente renderizado novamente
 ```
+
+**Como posso desconstruir uma props ?**
