@@ -8,7 +8,7 @@ function App() {
     <div>
       <h1>{message}</h1>
       <button
-        onClick={function () {
+        onClick={() => {
           setMessage("Olá, fui clicado!");
         }}
       >
