@@ -44,20 +44,34 @@ function App() {
     setTasks(newTasks);
   }
 
+  function onAddTaskSubmit(title, description) {
+    const newTask = {
+      id: tasks.length + 1,
+      title: title,
+      description: description,
+      isCompleted: false,
+    };
+
+    setTasks([...tasks, newTask]);
+  }
+
   return (
     <div>
-      <div className="w-screen h-screen bg-slate-500 flex justify-center p-6">
-        <div className="w-[500px]">
-          <h1 className="text-3xl text-slate-100 font-bold text-center">
-            Gereciador de Tarefas
-          </h1>
-          <AddTask />
-          <Tasks
-            tasks={tasks}
-            onTaskClick={onTaskClick}
-            onDeleteTaskClick={onDeleteTaskClick}
-          />
-          {/* componente filho */}
+      <div className="w-screen h-screen bg-slate-500 p-6 flex flex-col justify-center items-center">
+        <h1 className="text-3xl text-slate-100 font-bold text-center mb-6">
+          Gereciador de Tarefas
+        </h1>
+        <div className="flex w-[80vw] h-[80vh] justify-center items-center">
+          <div className="w-1/3 h-full p-4">
+            <AddTask onAddTaskSubmit={onAddTaskSubmit} />
+          </div>
+          <div className="w-2/3 h-full p-4">
+            <Tasks
+              tasks={tasks}
+              onTaskClick={onTaskClick}
+              onDeleteTaskClick={onDeleteTaskClick}
+            />
+          </div>
         </div>
       </div>
     </div>
